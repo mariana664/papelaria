@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleur Papelaria · Arte & Personalização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ 
+<!-- ══════════════════ LOGIN PAGE ══════════════════ -->
+<div id="page-login" class="page active">
+  <div class="login-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="petal petal-1">✿</div>
+    <div class="petal petal-2">✾</div>
+    <div class="petal petal-3">❀</div>
+    <div class="petal petal-4">✿</div>
+  </div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-icon">✦</div>
+      <h1 class="brand-name">Fleur</h1>
+      <p class="brand-sub">Papelaria & Arte</p>
+    </div>
+    <p class="login-tagline">Bem-vinda ao seu espaço de criação</p>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" id="login-email" placeholder="seu@email.com" />
+    </div>
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" id="login-password" placeholder="••••••••" />
+    </div>
+    <div class="login-options">
+      <label class="check-label"><input type="checkbox" /> Lembrar de mim</label>
+      <a href="#" class="link-subtle">Esqueci a senha</a>
+    </div>
+    <button class="btn-primary btn-full" onclick="goTo('home')">Entrar</button>
+    <div class="divider"><span>ou</span></div>
+    <button class="btn-outline btn-full">Criar conta gratuita</button>
+    <p class="login-footer">Acesse como <a href="#" onclick="goTo('home')" class="link-rose">visitante →</a></p>
+  </div>
+</div>
+ 
+<!-- ══════════════════ HOME PAGE ══════════════════ -->
+<div id="page-home" class="page">
+ 
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">
+        <span class="logo-mark">✦</span> Fleur
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#" onclick="goTo('catalog')" class="nav-link">Catálogo</a>
+        <a href="#" class="nav-link">Sobre</a>
+        <a href="#" class="nav-link">Contato</a>
+      </div>
+      <div class="nav-actions">
+        <div class="search-wrap">
+          <input type="text" id="search-input" class="nav-search" placeholder="Buscar produtos..." oninput="handleSearch()" />
+          <span class="search-icon">⌕</span>
+        </div>
+        <button class="nav-icon-btn" onclick="goTo('cart')" title="Carrinho">
+          🛒 <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+        <button class="nav-icon-btn" onclick="goTo('favorites')" title="Favoritos">♡</button>
+        <button class="btn-primary btn-sm" onclick="goTo('login')">Sair</button>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
+    </div>
+  </nav>
+ 
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">✦ Nova coleção 2025</span>
+      <h1 class="hero-title">Arte que<br/><em>encanta</em> cada<br/>momento</h1>
+      <p class="hero-sub">Papelaria personalizada, lembranças artesanais e muito amor em cada detalhe. Feito especialmente para você.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-lg" onclick="goTo('catalog')">Explorar catálogo</button>
+        <button class="btn-ghost btn-lg">Ver novidades</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>2.400+</strong><span>produtos</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>98%</strong><span>satisfação</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>5★</strong><span>avaliação</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card floating">
+        <div class="hcard-img">🎀</div>
+        <div class="hcard-info"><strong>Kit Bebê Rosa</strong><span>a partir de R$ 89</span></div>
+      </div>
+      <div class="hero-card floating delay-1">
+        <div class="hcard-img">💌</div>
+        <div class="hcard-info"><strong>Convites Casamento</strong><span>a partir de R$ 45</span></div>
+      </div>
+      <div class="hero-card floating delay-2">
+        <div class="hcard-img">🌸</div>
+        <div class="hcard-info"><strong>Lembrancinha Floral</strong><span>a partir de R$ 12</span></div>
+      </div>
+      <div class="hero-bg-circle"></div>
+    </div>
+  </section>
+ 
+  <!-- CATEGORIAS -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Explore por <em>categoria</em></h2>
+        <p class="section-sub">Encontre exatamente o que procura</p>
+      </div>
+      <div class="categories-grid">
+        <div class="cat-card" onclick="filterCategory('convites')">
+          <div class="cat-emoji">💌</div>
+          <h3>Convites</h3>
+          <p>Casamento, aniversário, chá</p>
+          <span class="cat-count">124 produtos</span>
+        </div>
+        <div class="cat-card" onclick="filterCategory('lembrancas')">
+          <div class="cat-emoji">🎀</div>
+          <h3>Lembranças</h3>
+          <p>Artesanais e personalizadas</p>
+          <span class="cat-count">89 produtos</span>
+        </div>
+        <div class="cat-card" onclick="filterCategory('infantil')">
+          <div class="cat-emoji">🧸</div>
+          <h3>Infantil</h3>
+          <p>Para os pequenos especiais</p>
+          <span class="cat-count">67 produtos</span>
+        </div>
+        <div class="cat-card" onclick="filterCategory('festa')">
+          <div class="cat-emoji">🎉</div>
+          <h3>Festas</h3>
+          <p>Decoração e papelaria</p>
+          <span class="cat-count">201 produtos</span>
+        </div>
+        <div class="cat-card" onclick="filterCategory('casamento')">
+          <div class="cat-emoji">💍</div>
+          <h3>Casamento</h3>
+          <p>O dia mais especial</p>
+          <span class="cat-count">156 produtos</span>
+        </div>
+        <div class="cat-card" onclick="filterCategory('papelaria')">
+          <div class="cat-emoji">📓</div>
+          <h3>Papelaria</h3>
+          <p>Cadernos, agendas e mais</p>
+          <span class="cat-count">98 produtos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- PRODUTOS EM DESTAQUE -->
+  <section class="section products-section alt-bg">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Produtos em <em>destaque</em></h2>
+        <a href="#" class="see-all" onclick="goTo('catalog')">Ver todos →</a>
+      </div>
+      <div class="products-grid" id="featured-grid"></div>
+    </div>
+  </section>
+ 
+  <!-- MAIS VENDIDOS -->
+  <section class="section products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Mais <em>vendidos</em> ✦</h2>
+        <a href="#" class="see-all" onclick="goTo('catalog')">Ver todos →</a>
+      </div>
+      <div class="products-grid" id="bestseller-grid"></div>
+    </div>
+  </section>
+ 
+  <!-- BANNER CTA -->
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <div>
+        <h2>Seu evento merece ser <em>inesquecível</em></h2>
+        <p>Kits personalizados com preço especial para encomendas acima de 50 unidades</p>
+      </div>
+      <div class="cta-actions">
+        <button class="btn-white btn-lg">Ver kits especiais</button>
+        <a class="btn-whatsapp btn-lg" href="https://wa.me/5551999999999?text=Olá! Quero saber mais sobre os kits personalizados." target="_blank">
+          <span>💬</span> WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">✦ Fleur</div>
+        <p>Arte & personalização com amor em cada detalhe.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Links</h4>
+        <a href="#">Catálogo</a>
+        <a href="#">Sobre nós</a>
+        <a href="#">Como funciona</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-links">
+        <h4>Ajuda</h4>
+        <a href="#">Prazos de entrega</a>
+        <a href="#">Política de troca</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5551999999999" target="_blank" class="whatsapp-link">💬 WhatsApp</a>
+        <p>contato@fleurpapelaria.com.br</p>
+        <p>@fleurpapelaria</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Fleur Papelaria · Feito com 💕</p>
+    </div>
+  </footer>
+</div>
+ 
+<!-- ══════════════════ CATALOG PAGE ══════════════════ -->
+<div id="page-catalog" class="page">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">✦ Fleur</div>
+      <div class="nav-links"><a href="#" onclick="goTo('catalog')" class="nav-link active">Catálogo</a></div>
+      <div class="nav-actions">
+        <div class="search-wrap">
+          <input type="text" id="cat-search" class="nav-search" placeholder="Buscar..." oninput="filterProducts()" />
+          <span class="search-icon">⌕</span>
+        </div>
+        <button class="nav-icon-btn" onclick="goTo('cart')">🛒 <span class="cart-badge" id="cart-badge-2">0</span></button>
+        <button class="nav-icon-btn" onclick="goTo('favorites')">♡</button>
+      </div>
+    </div>
+  </nav>
+ 
+  <div class="catalog-layout">
+    <!-- SIDEBAR FILTERS -->
+    <aside class="sidebar">
+      <h3 class="sidebar-title">Filtros</h3>
+ 
+      <div class="filter-group">
+        <h4>Categorias</h4>
+        <label class="filter-opt"><input type="radio" name="cat" value="" onchange="filterProducts()" checked /> Todas</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="convites" onchange="filterProducts()" /> Convites</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="lembrancas" onchange="filterProducts()" /> Lembranças</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="infantil" onchange="filterProducts()" /> Infantil</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="festa" onchange="filterProducts()" /> Festas</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="casamento" onchange="filterProducts()" /> Casamento</label>
+        <label class="filter-opt"><input type="radio" name="cat" value="papelaria" onchange="filterProducts()" /> Papelaria</label>
+      </div>
+ 
+      <div class="filter-group">
+        <h4>Preço máximo</h4>
+        <input type="range" min="10" max="500" value="500" id="price-range" oninput="updatePriceLabel(); filterProducts()" class="range-input" />
+        <span class="range-label">até R$ <span id="price-label">500</span></span>
+      </div>
+ 
+      <div class="filter-group">
+        <h4>Avaliação</h4>
+        <label class="filter-opt"><input type="radio" name="stars" value="0" onchange="filterProducts()" checked /> Todas</label>
+        <label class="filter-opt"><input type="radio" name="stars" value="4" onchange="filterProducts()" /> ★★★★ ou mais</label>
+        <label class="filter-opt"><input type="radio" name="stars" value="5" onchange="filterProducts()" /> ★★★★★ apenas</label>
+      </div>
+ 
+      <button class="btn-outline btn-full" onclick="resetFilters()">Limpar filtros</button>
+    </aside>
+ 
+    <!-- PRODUCTS GRID -->
+    <main class="catalog-main">
+      <div class="catalog-header">
+        <h2 class="catalog-title">Todos os produtos</h2>
+        <div class="sort-wrap">
+          <select id="sort-select" onchange="filterProducts()" class="sort-select">
+            <option value="default">Ordenar por</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+            <option value="rating">Melhor avaliação</option>
+            <option value="popular">Mais vendidos</option>
+          </select>
+        </div>
+      </div>
+      <p class="result-count" id="result-count"></p>
+      <div class="products-grid catalog-grid" id="catalog-grid"></div>
+    </main>
+  </div>
+</div>
+ 
+<!-- ══════════════════ PRODUCT DETAIL ══════════════════ -->
+<div id="page-product" class="page">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">✦ Fleur</div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" onclick="goTo('cart')">🛒 <span class="cart-badge" id="cart-badge-3">0</span></button>
+        <button class="btn-outline btn-sm" onclick="goTo('catalog')">← Voltar</button>
+      </div>
+    </div>
+  </nav>
+  <div class="product-detail-layout" id="product-detail-content"></div>
+</div>
+ 
+<!-- ══════════════════ CART PAGE ══════════════════ -->
+<div id="page-cart" class="page">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">✦ Fleur</div>
+      <div class="nav-actions">
+        <button class="btn-outline btn-sm" onclick="goTo('catalog')">← Continuar comprando</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container page-body">
+    <h1 class="page-title">Meu <em>carrinho</em></h1>
+    <div class="cart-layout">
+      <div class="cart-items" id="cart-items-list"></div>
+      <div class="cart-summary" id="cart-summary"></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ══════════════════ CHECKOUT PAGE ══════════════════ -->
+<div id="page-checkout" class="page">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">✦ Fleur</div>
+      <div class="nav-actions">
+        <button class="btn-outline btn-sm" onclick="goTo('cart')">← Voltar ao carrinho</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container page-body">
+    <h1 class="page-title">Finalizar <em>pedido</em></h1>
+    <div class="checkout-layout">
+      <!-- FORM -->
+      <div class="checkout-form">
+        <div class="form-card">
+          <h3>📦 Endereço de entrega</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Nome completo</label><input type="text" placeholder="Seu nome" /></div>
+            <div class="form-group"><label>CPF</label><input type="text" placeholder="000.000.000-00" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>CEP</label><input type="text" placeholder="00000-000" /></div>
+            <div class="form-group"><label>Telefone</label><input type="text" placeholder="(51) 99999-9999" /></div>
+          </div>
+          <div class="form-group"><label>Rua</label><input type="text" placeholder="Nome da rua, número" /></div>
+          <div class="form-row">
+            <div class="form-group"><label>Bairro</label><input type="text" placeholder="Bairro" /></div>
+            <div class="form-group"><label>Cidade</label><input type="text" placeholder="Cidade" /></div>
+            <div class="form-group"><label>Estado</label><input type="text" placeholder="RS" /></div>
+          </div>
+          <div class="form-group"><label>Complemento</label><input type="text" placeholder="Apto, bloco, referência..." /></div>
+        </div>
+ 
+        <div class="form-card">
+          <h3>💳 Forma de pagamento</h3>
+          <div class="payment-options">
+            <label class="pay-opt">
+              <input type="radio" name="payment" value="pix" checked onchange="togglePayment()" />
+              <div class="pay-card"><span>🏦</span><strong>PIX</strong><small>5% de desconto</small></div>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="payment" value="credit" onchange="togglePayment()" />
+              <div class="pay-card"><span>💳</span><strong>Cartão de crédito</strong><small>até 6x sem juros</small></div>
+            </label>
+            <label class="pay-opt">
+              <input type="radio" name="payment" value="boleto" onchange="togglePayment()" />
+              <div class="pay-card"><span>📄</span><strong>Boleto</strong><small>Vence em 3 dias</small></div>
+            </label>
+          </div>
+          <div id="credit-fields" style="display:none;" class="credit-form">
+            <div class="form-group"><label>Número do cartão</label><input type="text" placeholder="0000 0000 0000 0000" /></div>
+            <div class="form-row">
+              <div class="form-group"><label>Validade</label><input type="text" placeholder="MM/AA" /></div>
+              <div class="form-group"><label>CVV</label><input type="text" placeholder="000" /></div>
+            </div>
+            <div class="form-group"><label>Parcelas</label>
+              <select class="sort-select">
+                <option>1x de R$ 0,00</option>
+                <option>2x de R$ 0,00</option>
+                <option>6x de R$ 0,00</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- SUMMARY -->
+      <div class="checkout-summary" id="checkout-summary"></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ══════════════════ FAVORITES PAGE ══════════════════ -->
+<div id="page-favorites" class="page">
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo" onclick="goTo('home')">✦ Fleur</div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" onclick="goTo('cart')">🛒 <span class="cart-badge" id="cart-badge-4">0</span></button>
+        <button class="btn-outline btn-sm" onclick="goTo('catalog')">← Catálogo</button>
+      </div>
+    </div>
+  </nav>
+  <div class="container page-body">
+    <h1 class="page-title">Meus <em>favoritos</em> ♡</h1>
+    <div class="products-grid" id="favorites-grid"></div>
+  </div>
+</div>
+ 
+<!-- ══════════════════ SUCCESS PAGE ══════════════════ -->
+<div id="page-success" class="page">
+  <div class="success-wrap">
+    <div class="success-icon">🎀</div>
+    <h1>Pedido realizado!</h1>
+    <p>Obrigada pela sua compra. Em breve entraremos em contato para confirmar os detalhes da personalização.</p>
+    <p class="success-order">Pedido <strong>#FL2025-<span id="order-num"></span></strong></p>
+    <div class="success-actions">
+      <button class="btn-primary btn-lg" onclick="goTo('home')">Voltar ao início</button>
+      <a class="btn-whatsapp btn-lg" href="https://wa.me/5551999999999?text=Olá! Acabei de fazer o pedido e quero acompanhar!" target="_blank">💬 Acompanhar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+ 
+<script src="app.js"></script>
+</body>
+</html>
